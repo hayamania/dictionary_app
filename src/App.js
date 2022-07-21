@@ -12,7 +12,10 @@ function App() {
         <footer>
           <small>
             This is coded by Chie HYM and{" "}
-            <a href="https://clinquant-lolly-a74fa2.netlify.app/">
+            <a
+              href="https://clinquant-lolly-a74fa2.netlify.app/"
+              target="_blank"
+            >
               open-sorced
             </a>{" "}
             on Netlify
