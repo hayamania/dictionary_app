@@ -1,15 +1,18 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Result from "./Result";
 
 export default function Dictionary() {
   let [keyword, SetKeyword] = useState(null);
+  let [result, SetResult] = useState(null);
+
   function searchDictionary(response) {
     console.log(response);
+    SetResult(response.data[0]);
   }
 
   function searchKeyword(event) {
     event.preventDefault();
-    alert(`Searching keyword:${keyword}`);
 
     // Documents: https://github.com/meetDeveloper/freeDictionaryAPI
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
@@ -26,6 +29,7 @@ export default function Dictionary() {
         <form onSubmit={searchKeyword}>
           <input type="search" autoFocus={true} onChange={updateKeyword} />
         </form>
+        <Result result={result} />
       </div>
     </div>
   );
