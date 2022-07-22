@@ -2,7 +2,6 @@ import React from "react";
 import Example from "./Example";
 
 export default function Definition(props) {
-  console.log(props.definitions);
   return (
     <div className="Definition">
       {props.definitions.map(function (definition, index) {
