@@ -1,0 +1,6 @@
+.Synonym li {
+  list-style-type: none;
+}
+.Synonym .title {
+  text-decoration: underline;
+}
