@@ -1,6 +1,7 @@
 import React from "react";
 import "./Result.css";
 import Definition from "./Definition";
+import Audio from "./Audio";
 
 export default function Result(props) {
   if (props.result) {
@@ -8,6 +9,7 @@ export default function Result(props) {
       <div className="Result">
         <span className="Result-word me-2">{props.result.word}</span>
         <span className="Result-phonetic"> {props.result.phonetic}</span>
+        <Audio data={props.result.phonetics[0].audio} />
         {props.result.meanings.map(function (meaning, index) {
           return (
             <div key={index} className="mb-1">
