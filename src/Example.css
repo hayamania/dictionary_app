@@ -1,0 +1,4 @@
+.Example li {
+  list-style-type: none;
+  font-style: italic;
+}

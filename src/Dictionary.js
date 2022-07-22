@@ -7,7 +7,6 @@ export default function Dictionary() {
   let [result, SetResult] = useState(null);
 
   function searchDictionary(response) {
-    console.log(response);
     SetResult(response.data[0]);
   }
 
@@ -26,7 +25,7 @@ export default function Dictionary() {
     <div className="Dictionary text-center">
       <div className="container m-3">
         <h1>Dictionary</h1>
-        <form onSubmit={searchKeyword}>
+        <form onSubmit={searchKeyword} className="mb-4">
           <input type="search" autoFocus={true} onChange={updateKeyword} />
         </form>
         <Result result={result} />
