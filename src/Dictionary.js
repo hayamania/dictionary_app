@@ -6,14 +6,16 @@ import "./Dictionary.css";
 export default function Dictionary() {
   let [keyword, SetKeyword] = useState(null);
   let [result, SetResult] = useState(null);
-  let [apiStatus, SetApiStatus] = useState(true);
+  let [msg, SetMsg] = useState(null);
 
   function searchDictionary(response) {
+    SetMsg(null);
     SetResult(response.data[0]);
   }
 
   function errorHappens() {
-    SetApiStatus(false);
+    SetResult(null);
+    SetMsg(`Sorry, No Definitions Found`);
   }
 
   function searchKeyword(event) {
@@ -27,39 +29,21 @@ export default function Dictionary() {
   function updateKeyword(event) {
     SetKeyword(event.target.value);
   }
-  if (apiStatus) {
-    return (
-      <div className="Dictionary text-center">
-        <div className="container m-3">
-          <h1>Dictionary</h1>
-          <form onSubmit={searchKeyword} className="mb-4">
-            <input
-              type="search"
-              autoFocus={true}
-              onChange={updateKeyword}
-              placeholder="Type a word...such as sunset, sky, flower..."
-            />
-          </form>
-          <Result result={result} />
-        </div>
+  return (
+    <div className="Dictionary text-center">
+      <div className="container m-3">
+        <h1>Dictionary</h1>
+        <form onSubmit={searchKeyword} className="mb-4">
+          <input
+            type="search"
+            autoFocus={true}
+            onChange={updateKeyword}
+            placeholder="Type a word...such as sunset, sky, flower..."
+          />
+        </form>
+        <Result result={result} />
+        <h2>{msg}</h2>
       </div>
-    );
-  } else {
-    return (
-      <div className="Dictionary text-center">
-        <div className="container m-3">
-          <h1>Dictionary</h1>
-          <form onSubmit={searchKeyword} className="mb-4">
-            <input
-              type="search"
-              autoFocus={true}
-              onChange={updateKeyword}
-              placeholder="Type a word...such as sunset, sky, flower..."
-            />
-          </form>
-          <h2>Sorry, No Definitions Found</h2>
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 }
