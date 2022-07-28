@@ -1,9 +1,6 @@
 .Result {
-  max-width: 700px;
-  margin: auto;
   text-align: left;
 }
-
 .Result-word {
   font-weight: 700;
   font-size: 30px;
@@ -13,11 +10,4 @@
   color: rgba(0, 0, 0, 0.7);
   font-style: italic;
   font-size: 20px;
-}
-
-.Result section {
-  background-color: white;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 10px;
 }

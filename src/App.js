@@ -9,7 +9,7 @@ function App() {
         <main>
           <Dictionary />
         </main>
-        <footer>
+        <footer className="text-center">
           <small>
             This is coded by Chie HYM and{" "}
             <a
@@ -17,7 +17,7 @@ function App() {
               target="_blank"
             >
               open-sorced
-            </a>{" "}
+            </a>
             on Netlify
           </small>
         </footer>
