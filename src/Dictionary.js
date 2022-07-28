@@ -13,6 +13,7 @@ export default function Dictionary() {
   function searchDictionary(response) {
     SetMsg(null);
     SetResult(response.data[0]);
+    searchImages();
   }
 
   function errorHappens() {
@@ -21,8 +22,16 @@ export default function Dictionary() {
     SetMsg(`Sorry, No Definitions Found`);
   }
 
-  function searchImages(response) {
+  function getImages(response) {
     SetImages(response.data.photos);
+  }
+
+  function searchImages() {
+    const imageApiKey = `563492ad6f9170000100000192fdee6ecedd4063bac7094729c878e8`;
+    const imageApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+    axios
+      .get(imageApiUrl, { headers: { authorization: imageApiKey } })
+      .then(getImages);
   }
 
   function searchKeyword(event) {
@@ -31,12 +40,6 @@ export default function Dictionary() {
     // Documents: https://github.com/meetDeveloper/freeDictionaryAPI
     const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiUrl).then(searchDictionary).catch(errorHappens);
-
-    const imageApiKey = `563492ad6f9170000100000192fdee6ecedd4063bac7094729c878e8`;
-    const imageApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
-    axios
-      .get(imageApiUrl, { headers: { authorization: imageApiKey } })
-      .then(searchImages);
   }
 
   function updateKeyword(event) {
